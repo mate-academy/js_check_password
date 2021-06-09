@@ -6,9 +6,10 @@
  * @returns {boolean}
  */
 function checkPassword(password) {
-  const v = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,16}$/;
+  // eslint-disable-next-line max-len
+  const validPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,16}$/;
 
-  if (password.match(v)) {
+  if (password.match(validPassword)) {
     return true;
   }
 
