@@ -19,11 +19,11 @@ describe(`Function 'checkPassword':`, () => {
     expect(checkPassword('2BNier-!blaaaaaa')).toBe(true);
   });
 
-  it(`shouldn return 'false' for the valid password with 7 characters`, () => {
+  it(`should return 'false' for the valid password with 7 characters`, () => {
     expect(checkPassword('2BNier!')).toBe(false);
   });
 
-  it(`shouldn return 'false' for the valid password with 17 characters`, () => {
+  it(`should return 'false' for the valid password with 17 characters`, () => {
     expect(checkPassword('2BNier-!blaaaaaaa')).toBe(false);
   });
 
