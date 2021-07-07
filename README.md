@@ -1,4 +1,4 @@
-Write tests for the function `checkPassword`, which takes the string` password` and returns `true` for the valid password, and` false` for invalide.  
+Write tests for the function `checkPassword`, which takes the string `password` and returns `true` for the valid password, and` false` for invalide.  
 
 Rules for the valid password:
 - accepts only letters of the Latin alphabet `Aa-Zz`;
