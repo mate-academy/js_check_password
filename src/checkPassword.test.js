@@ -68,5 +68,8 @@ describe(`Function 'checkPassword':`, () => {
   letter, digit, special symbol`, () => {
     expect(checkPassword('Pas$1Wor@2And/3AgaI&')).toBe(false);
   });
-  // write more tests here
+
+  it(`should return 'false' for the blank password`, () => {
+    expect(checkPassword('')).toBe(false);
+  });
 });
