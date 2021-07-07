@@ -9,8 +9,8 @@
 Приклади:
 ```js
 checkPassword('Password1!') === true
-getHumanAge('qwerty') === false
-getHumanAge('Str@ng') === false
+checkPassword('qwerty') === false
+checkPassword('Str@ng') === false
 ```
 
 [Guideline](https://github.com/mate-academy/js_task-guideline/blob/master/README.md)
