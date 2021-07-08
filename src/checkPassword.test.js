@@ -52,7 +52,7 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return 'false' for password
-  without digit with 13 characters`, () => {
+  without digit with 8 characters`, () => {
     expect(checkPassword('Pass$aaa')).toBeFalsy();
   });
 
