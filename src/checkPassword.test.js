@@ -20,7 +20,7 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return 'false' for password less 
-  than 8 characters: 'qwerty'`, () => {
+  than 8 characters: 'q@1erty'`, () => {
     expect(checkPassword('q@1erty')).toBe(false);
   });
 
