@@ -31,12 +31,12 @@ describe(`Function 'checkPassword':`, () => {
     expect(checkPassword('cinderella@4')).toBeFalsy();
   });
 
-  it(`should return 'false' for the password with 5 characters`, () => {
-    expect(checkPassword('Air8@')).toBeFalsy();
+  it(`should return 'false' for the password with 7 characters`, () => {
+    expect(checkPassword('Airdr8@')).toBeFalsy();
   });
 
-  it(`should return 'false' for the password with 19 characters`, () => {
-    expect(checkPassword('Conceptualisation6@')).toBeFalsy();
+  it(`should return 'false' for the password with 17 characters`, () => {
+    expect(checkPassword('Conceptualisati6@')).toBeFalsy();
   });
 
   it(`should return 'false' for the empty value in field "password"`, () => {
