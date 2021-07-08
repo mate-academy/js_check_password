@@ -12,7 +12,7 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return 'false' for empty password field`, () => {
-    expect(checkPassword('')).toBe(false);
+    expect(checkPassword('')).toBeFalsy();
   });
 
   it(`should return 'true' for the valid password with 10 characters`, () => {
