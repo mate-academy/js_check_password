@@ -38,31 +38,31 @@ describe(`Function 'checkPassword':`, () => {
       .toBeFalsy();
   });
 
-  it(`should return 'false' for the valid input and lenght password, 
+  it(`should return 'false' for the valid input and length password, 
     but without at least one digit`, () => {
     expect(checkPassword('TestPASSword@@'))
       .toBeFalsy();
   });
 
-  it(`should return 'false' for the valid input and lenght password, 
+  it(`should return 'false' for the valid input and length password, 
     but without at least one symbol`, () => {
     expect(checkPassword('TestpassWord1'))
       .toBeFalsy();
   });
 
-  it(`should return 'false' for the valid input and lenght password, 
+  it(`should return 'false' for the valid input and length password, 
     but without at least one upper-case character`, () => {
     expect(checkPassword('testpass#1testpas'))
       .toBeFalsy();
   });
 
-  it(`should return 'true' for the valid input and lenght password 
+  it(`should return 'true' for the valid input and length password 
     and only one upper-case latin character`, () => {
     expect(checkPassword('1234567Fs@'))
       .toBeTruthy();
   });
 
-  it(`should return 'false' for the input and lenght password,
+  it(`should return 'false' for the input and length password,
     but with at least one cyrillic character`, () => {
     expect(checkPassword('TestПароль!!37'))
       .toBeFalsy();
