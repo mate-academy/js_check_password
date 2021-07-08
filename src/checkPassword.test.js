@@ -16,7 +16,7 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return 'true' for the valid password with 10 characters`, () => {
-    expect(checkPassword('Hubabuba1!')).toBe(true);
+    expect(checkPassword('Hubabuba1!')).toBeTruthy();
   });
 
   it(`should return 'true' for the valid password with 8 characters`, () => {
