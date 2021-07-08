@@ -21,10 +21,6 @@ describe(`Function 'checkPassword':`, () => {
     expect(checkPassword('P@ssw0rdP@ssw0rd')).toBeTruthy();
   });
 
-  it(`should return 'true' for the valid password with Latin alphabet`, () => {
-    expect(checkPassword('Password1@')).toBeTruthy();
-  });
-
   it(`should return 'false' 
   for the valid password with Cyrillic alphabet`, () => {
     expect(checkPassword('Пароль1@')).toBeFalsy();
