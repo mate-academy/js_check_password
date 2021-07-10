@@ -43,4 +43,8 @@ describe(`Function 'checkPassword':`, () => {
    for the password withot uppercase character`, () => {
     expect(checkPassword('#$%^%i4563')).toBe(false);
   });
+
+  it(`should return 'false' for the password with non-Latin character`, () => {
+    expect(checkPassword('Y#2Y3Кириллица')).toBe(false);
+  });
 });
