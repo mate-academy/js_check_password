@@ -11,16 +11,16 @@ describe(`Function 'checkPassword':`, () => {
     expect(typeof checkPassword('111dsf')).toBe('boolean');
   });
 
-  it(`should return 'true' for the valid password with 8 characters`, () => {
+  it(`should return 'true' for the valid password`, () => {
     expect(checkPassword('P@sswo0d')).toBe(true);
   });
 
-  it(`should return 'false' for the invalid password with 8 characters`, () => {
+  it(`should return 'false' for the invalid password`, () => {
     expect(checkPassword('P@sswжжd')).toBe(false);
   });
 
   it(`should return 'false' for password less 
-  than 8 characters: 'qwerty'`, () => {
+  than 8 characters: 'q@1erty'`, () => {
     expect(checkPassword('q@1erty')).toBe(false);
   });
 
@@ -29,8 +29,7 @@ describe(`Function 'checkPassword':`, () => {
     expect(checkPassword('VerySrt@ngpassw1')).toBe(true);
   });
 
-  it(`should return 'false' for the invalid password with 
-  3 characters: '%7g'`, () => {
+  it(`should return 'false' for the invalid password: '%7g'`, () => {
     expect(checkPassword('%7g')).toBe(false);
   });
 });
