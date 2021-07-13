@@ -11,27 +11,28 @@ describe(`Function 'checkPassword':`, () => {
     expect(typeof checkPassword('false')).toBe('boolean');
   });
 
-  it(`should return 'false' for the valid password with less than 7 characters`,
-    () => {
-      expect(checkPassword('1!TheEl')).toBe(false);
-    });
+  it(`should return 'false' 
+  for the password with less than 7 characters length`,
+  () => {
+    expect(checkPassword('1!TheEl')).toBe(false);
+  });
 
-  it(`should return 'true' for the valid password with 8 characters`,
+  it(`should return 'true' for the password with 8 characters length`,
     () => {
       expect(checkPassword('1!TheEld')).toBe(true);
     });
 
-  it(`should return 'true' for the valid password with 12 characters`,
+  it(`should return 'true' for the password with 12 characters length`,
     () => {
       expect(checkPassword('1!TheElderSc')).toBe(true);
     });
 
-  it(`should return 'true' for the valid password with 16 characters`,
+  it(`should return 'true' for the password with 16 characters length`,
     () => {
       expect(checkPassword('1!TheElderScroll')).toBe(true);
     });
 
-  it(`should return 'false' for the valid password with 17 characters`,
+  it(`should return 'false' for the password with 17 characters length`,
     () => {
       expect(checkPassword('1!TheElderScrolls')).toBe(false);
     });
