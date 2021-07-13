@@ -41,6 +41,4 @@ describe(`Function 'checkPassword':`, () => {
   without uppercase letter`, () => {
     expect(checkPassword('qwertyui1!')).toBe(false);
   });
-
-  // write more tests here
 });
