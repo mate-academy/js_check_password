@@ -20,7 +20,7 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return 'false' for the password with Cyrillic characters`, () => {
-    expect(checkPassword(' ЙЦУКЕНГ1!')).toBe(false);
+    expect(checkPassword('ЙЦУКЕНГ1!')).toBe(false);
   });
 
   it(`should return 'false' for the password with 17 characters`, () => {
