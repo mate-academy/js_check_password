@@ -15,8 +15,17 @@ describe(`Function 'checkPassword':`, () => {
     expect(checkPassword('Qw34*678')).toBeTruthy();
   });
 
+  it(`should return 'true' for the valid password with 16 characters`, () => {
+    expect(checkPassword('Qw34*6qrtyuier78')).toBeTruthy();
+  });
+
   it(`should return 'false' for the password with 7 or less characters`, () => {
     expect(checkPassword('Qw34*68')).toBeFalsy();
+  });
+
+  it(`should return 'false' for the password
+   with 17 or more characters`, () => {
+    expect(checkPassword('Qw34*6qrtyuier78-')).toBeFalsy();
   });
 
   it(`should return 'false' for the empty password`, () => {
