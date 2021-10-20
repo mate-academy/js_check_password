@@ -8,12 +8,34 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return boolean`, () => {
-
+    expect(checkPassword('Wtyq*4yq5h')).toBeTruthy();
   });
 
   it(`should return 'true' for the valid password with 8 characters`, () => {
-
+    expect(checkPassword('Qw34*678')).toBeTruthy();
   });
 
-  // write more tests here
+  it(`should return 'false' for the password with 7 or less characters`, () => {
+    expect(checkPassword('Qw34*68')).toBeFalsy();
+  });
+
+  it(`should return 'false' for the empty password`, () => {
+    expect(checkPassword('')).toBeFalsy();
+  });
+
+  it(`should return 'false' for the password without spesial symbol(s)`, () => {
+    expect(checkPassword('eARgy34g2q3')).toBeFalsy();
+  });
+
+  it(`should return 'false' for the password without capital char(s)`, () => {
+    expect(checkPassword('ear-y34g2q3')).toBeFalsy();
+  });
+
+  it(`should return 'false' for the password without latin char(s)`, () => {
+    expect(checkPassword('Ййцукен-312')).toBeFalsy();
+  });
+
+  it(`should return 'false' for the password without number(s)`, () => {
+    expect(checkPassword('Qwerty&#tr')).toBeFalsy();
+  });
 });
