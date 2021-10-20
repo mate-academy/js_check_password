@@ -41,4 +41,9 @@ describe(`Function 'checkPassword':`, () => {
   it(`should return 'false' for the password with 17 characters`, () => {
     expect(checkPassword('Passwordnewone1!!')).toBeFalsy();
   });
+
+  it(`should return 'false' for the password with 8 characters 
+  including not latin letters`, () => {
+    expect(checkPassword('Пароль1!')).toBeFalsy();
+  });
 });
