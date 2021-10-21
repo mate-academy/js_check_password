@@ -32,7 +32,7 @@ describe(`Function 'checkPassword':`, () => {
     expect(checkPassword('')).toBeFalsy();
   });
 
-  it(`should return 'false' for the password without spesial symbol(s)`, () => {
+  it(`should return 'false' for the password without speсial symbol(s)`, () => {
     expect(checkPassword('eARgy34g2q3')).toBeFalsy();
   });
 
