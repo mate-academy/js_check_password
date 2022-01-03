@@ -14,6 +14,7 @@ describe(`Function 'checkPassword':`, () => {
   it(`should return 'true' for the valid password with 8 characters`, () => {
     expect(checkPassword('Password1!')).toBe(true);
   });
+<<<<<<< HEAD
 
   it(`should return 'true' for the password with 8 characters`, () => {
     expect(checkPassword('Passwo1!')).toBe(true);
@@ -31,6 +32,25 @@ describe(`Function 'checkPassword':`, () => {
     expect(checkPassword('Passwo1!Passwo1!1')).toBe(false);
   });
 
+=======
+
+  it(`should return 'true' for the password with 8 characters`, () => {
+    expect(checkPassword('Passwo1!')).toBe(true);
+  });
+
+  it(`should return 'true' for the password with 16 characters`, () => {
+    expect(checkPassword('Passwo1!Passwo1!')).toBe(true);
+  });
+
+  it(`should return 'false' for the password with 7 characters`, () => {
+    expect(checkPassword('Passw1!')).toBe(false);
+  });
+
+  it(`should return 'false' for the password with 17 characters`, () => {
+    expect(checkPassword('Passwo1!Passwo1!1')).toBe(false);
+  });
+
+>>>>>>> 95c04f6e7b8c70e0fb42760dd9840007ba57eace
   it(`should return 'false' for the password with non-Latin letters`, () => {
     expect(checkPassword('Paлsword1!')).toBe(false);
   });
@@ -46,4 +66,10 @@ describe(`Function 'checkPassword':`, () => {
   it(`should return 'false' for the password without a capital letter`, () => {
     expect(checkPassword('password!1')).toBe(false);
   });
+<<<<<<< HEAD
+=======
+
+
+  // write more tests here
+>>>>>>> 95c04f6e7b8c70e0fb42760dd9840007ba57eace
 });
