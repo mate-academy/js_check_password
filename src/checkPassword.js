@@ -19,3 +19,5 @@ function checkPassword(password) {
 }
 
 module.exports = checkPassword;
+
+// console.log(checkPassword(''));
