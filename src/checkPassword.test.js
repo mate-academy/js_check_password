@@ -43,4 +43,9 @@ describe(`Function 'checkPassword':`, () => {
   it(`should return 'false' for the password with non-Latin character`, () => {
     expect(checkPassword('Фalid_password8')).toBe(false);
   });
+
+  it(`should return 'true' for the password with 1 number, '
+  + 1 special character  and 1 uppercase letter `, () => {
+    expect(checkPassword('test!Pasw2')).toBe(true);
+  });
 });
