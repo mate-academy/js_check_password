@@ -8,7 +8,9 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return boolean`, () => {
+    const result = checkPassword('Password1!');
 
+    expect(typeof result).toBe('boolean');
   });
 
   it(`should return 'true' for the valid password with 8 characters`, () => {
