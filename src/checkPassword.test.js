@@ -22,7 +22,7 @@ describe(`Function 'checkPassword':`, () => {
 
   it(`should return "false" for input with
    empty spaces in braces`, () => {
-    expect(checkPassword(' ')).toBeFalsy();
+    expect(checkPassword(' Passwo1!')).toBeFalsy();
   });
 
   it(`should return 'true' for the valid password with 8 characters`, () => {
@@ -59,7 +59,7 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return 'false' for the invalid password
-   with 16+ chars`, () => {
-    expect(checkPassword('Qwerty!12345678901')).toBeFalsy();
+   without special char`, () => {
+    expect(checkPassword('Qwerty11')).toBeFalsy();
   });
 });
