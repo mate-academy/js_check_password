@@ -13,7 +13,7 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return 'true' for the valid password with 8 characters`, () => {
-    const validPassword = "Password1!";
+    const validPassword = "Passw0rd";
     const result = checkPassword(validPassword);
     expect(result).toBe(true);
   });
@@ -43,7 +43,7 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return 'false' for too long password`, () => {
-    const invalidPassword = "P@ssw0rd1234567890!";
+    const invalidPassword = "P@ssw0rd123456789";
     const result = checkPassword(invalidPassword);
     expect(result).toBe(false);
   });
