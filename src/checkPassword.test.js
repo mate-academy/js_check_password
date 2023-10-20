@@ -13,7 +13,7 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return 'true' for the valid password with 8 characters`, () => {
-    const validPassword = "Passw0rd";
+    const validPassword = "ValidPwd1";
     const result = checkPassword(validPassword);
     expect(result).toBe(true);
   });
@@ -52,5 +52,11 @@ describe(`Function 'checkPassword':`, () => {
     const invalidPassword = "P@ssw0rdПароль!";
     const result = checkPassword(invalidPassword);
     expect(result).toBe(false);
+  });
+
+  it(`should return 'true' for a valid password with 16 characters`, () => {
+    const validPassword = "ValidPassword1234!";
+    const result = checkPassword(validPassword);
+    expect(result).toBe(true);
   });
 });
