@@ -17,16 +17,17 @@ describe(`Function 'checkPassword':`, () => {
     expect(result).to.be.true;
   });
 
-  it('should return true for a valid password', () => {
-    const result = checkPassword('Password1!');
-
-    expect(result).to.be.true;
-  });
-
+  
   it('should return false for a password contains at least 1 digit, 1 special character, 1 uppercase letter.', () => {
     const result = checkPassword('qwerty');
 
     expect(result).to.be.false;
+  });
+
+  it('should return true for a valid password', () => {
+    const result = checkPassword('Password1!');
+
+    expect(result).to.be.true;
   });
 
   it('should return false for a password without special characters', () => {
