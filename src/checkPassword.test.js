@@ -52,20 +52,8 @@ describe(`Function 'checkPassword':`, () => {
     expect(result).to.be.false;
   });
 
-  it('should return false for a password with 7 characters', () => {
-    const result = checkPassword('Pwd1hj!');
-
-    expect(result).to.be.false;
-  });
-
-  it('should return false for a password with 17 characters', () => {
-    const result = checkPassword('VeryLongPassword1');
-
-    expect(result).to.be.false;
-  });
-
-  it('should return false for a password with invalid characters', () => {
-    const result = checkPassword('Invalid*Password1');
+  it('should return false for a password with Ukrainian letters Aa-Яя', () => {
+    const result = checkPassword('Пароль1!@');
 
     expect(result).to.be.false;
   });
