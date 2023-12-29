@@ -23,7 +23,7 @@ describe(`Function 'checkPassword':`, () => {
     expect(result).to.be.true;
   });
 
-  it('should return false for a password without uppercase letters', () => {
+  it('should return false for a password contains at least 1 digit, 1 special character, 1 uppercase letter.', () => {
     const result = checkPassword('qwerty');
 
     expect(result).to.be.false;
@@ -41,14 +41,14 @@ describe(`Function 'checkPassword':`, () => {
     expect(result).to.be.false;
   });
 
-  it('should return false for a short password', () => {
-    const result = checkPassword('Pwd1!');
+  it('should return false for a password with 7 characters', () => {
+    const result = checkPassword('Pwd1hj!');
 
     expect(result).to.be.false;
   });
 
-  it('should return false for a long password', () => {
-    const result = checkPassword('VeryLongPassword123!@#$%^');
+  it('should return false for a password with 17 characters', () => {
+    const result = checkPassword('VeryLongPassword1');
 
     expect(result).to.be.false;
   });
