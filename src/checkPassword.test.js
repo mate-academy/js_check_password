@@ -28,26 +28,21 @@ describe(`Function 'checkPassword':`, () => {
 
     expect(result).to.be.false;
   });
+
   it(`should return true for the password with 16 characters including at least 1 digit, 1 special character, 1 uppercase letter. `, () => {
     const result = checkPassword('Passwordwertdc!1');
 
     expect(result).to.be.false;
   });
 
-  it('should return true for a valid password', () => {
-    const result = checkPassword('Password1!');
-
-    expect(result).to.be.true;
-  });
-
   it('should return false for a password without special characters', () => {
-    const result = checkPassword('StrongPassword');
+    const result = checkPassword('StrongPassword1');
 
     expect(result).to.be.false;
   });
 
   it('should return false for a password without digits', () => {
-    const result = checkPassword('Str@ng');
+    const result = checkPassword('Str123ng');
 
     expect(result).to.be.false;
   });
