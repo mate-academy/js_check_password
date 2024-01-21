@@ -41,7 +41,7 @@ describe(`Function 'checkPassword':`, () => {
     });
 
     it('password longer than 16 characters', () => {
-      const result = checkPassword('TooLongPassword123!');
+      const result = checkPassword('LongPassword1234!');
 
       expect(result).toBe(false);
     });
@@ -52,8 +52,8 @@ describe(`Function 'checkPassword':`, () => {
       expect(result).toBe(false);
     });
 
-    it('password without a lowercase letter', () => {
-      const result = checkPassword('NOLOWERCASE1!');
+    it('password without a special character', () => {
+      const result = checkPassword('Nospecialch1');
 
       expect(result).toBe(false);
     });
