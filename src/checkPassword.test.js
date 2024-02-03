@@ -48,6 +48,6 @@ describe(`Function 'checkPassword':`, () => {
 
   it(`should return 'true'
     for the valid password with 11 characters`, () => {
-    expect(checkPassword('qwerty1234!')).toBe(false);
+    expect(checkPassword('Qwerty1234!')).toBe(true);
   });
 });
