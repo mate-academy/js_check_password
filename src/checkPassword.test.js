@@ -71,4 +71,28 @@ describe(`Function 'checkPassword':`, () => {
   it(`should return 'true' for the valid password with 8 characters`, () => {
     expect(checkPassword('TS-best1')).toBe(true);
   });
+
+  it(`should return 'false' for the invalid password with 8 characters`, () => {
+    expect(checkPassword('Кирилиця')).toBe(false);
+  });
+
+  it(`should return 'false' for
+    the invalid password with more than 8 characters`, () => {
+    expect(checkPassword('Кирилиця1234')).toBe(false);
+  });
+
+  it(`should return 'false' for
+    the invalid password with more than 8 characters`, () => {
+    expect(checkPassword('Кирилиця_#999')).toBe(false);
+  });
+
+  it(`should return 'false' for
+    the invalid password with 16 characters`, () => {
+    expect(checkPassword('Кирилиця_is_poor')).toBe(false);
+  });
+
+  it(`should return 'false' for
+    the invalid password with more than 16 characters`, () => {
+    expect(checkPassword('Кирилиця_is_poor_100%')).toBe(false);
+  });
 });
