@@ -1,19 +1,50 @@
 'use strict';
 
-describe(`Function 'checkPassword':`, () => {
-  const checkPassword = require('./checkPassword');
+const checkPassword = require('./checkPassword');
 
-  it(`should be declared`, () => {
-    expect(checkPassword).toBeInstanceOf(Function);
+describe('checkPassword', () => {
+  test('Valid password (meets all rules)', () => {
+    expect(checkPassword('Abcd@123')).toBe(true);
+    expect(checkPassword('ValidPass@1')).toBe(true);
   });
 
-  it(`should return boolean`, () => {
-
+  test('is function declared', () => {
+    expect(typeof (checkPassword)).toBe('function');
   });
 
-  it(`should return 'true' for the valid password with 8 characters`, () => {
-
+  test('Invalid password (too short)', () => {
+    expect(checkPassword('A@1')).toBe(false);
   });
 
-  // write more tests here
+  test('Invalid password (too long)', () => {
+    expect(checkPassword('Password12345678@')).toBe(false);
+  });
+
+  test('Invalid password (missing digit)', () => {
+    expect(checkPassword('Password@')).toBe(false);
+  });
+
+  test('Invalid password (missing special character)', () => {
+    expect(checkPassword('Password123')).toBe(false);
+  });
+
+  test('Invalid password (missing uppercase letter)', () => {
+    expect(checkPassword('password@123')).toBe(false);
+  });
+
+  test('Invalid password (contains Cyrillic characters)', () => {
+    expect(checkPassword('Пароль@123')).toBe(false);
+  });
+
+  test('Invalid password (contains spaces)', () => {
+    expect(checkPassword('Password @123')).toBe(false);
+  });
+
+  test('Invalid password (empty string)', () => {
+    expect(checkPassword('')).toBe(false);
+  });
+
+  test('Invalid password (only special characters)', () => {
+    expect(checkPassword('@#$%^&*')).toBe(false);
+  });
 });
