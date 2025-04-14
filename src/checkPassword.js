@@ -18,4 +18,4 @@ function checkPassword(password) {
   return false;
 }
 
-module.exports = checkPassword;
+module.exports = { checkPassword };
