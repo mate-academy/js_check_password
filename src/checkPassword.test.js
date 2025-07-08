@@ -8,12 +8,42 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return boolean`, () => {
-
+    expect(typeof checkPassword('Password1!')).toBe('boolean');
   });
 
-  it(`should return 'true' for the valid password with 8 characters`, () => {
-
+  it(`should return 'true' for a valid password with 8 characters`, () => {
+    expect(checkPassword('A1!abcde')).toBe(true);
   });
 
-  // write more tests here
+  it(`should return 'true' for a valid password with 16 characters`, () => {
+    expect(checkPassword('Abcdef1!Abcdef1!')).toBe(true);
+  });
+
+  it(`should return 'false' for password shorter than 8 characters`, () => {
+    expect(checkPassword('A1!a')).toBe(false);
+  });
+
+  it(`should return 'false' for password longer than 16 characters`, () => {
+    expect(checkPassword('A1!abcdefabcdefghi')).toBe(false);
+  });
+
+  it(`should return 'false' if password has no digit`, () => {
+    expect(checkPassword('Password!')).toBe(false);
+  });
+
+  it(`should return 'false' if password has no special character`, () => {
+    expect(checkPassword('Password1')).toBe(false);
+  });
+
+  it(`should return 'false' if password has no uppercase letter`, () => {
+    expect(checkPassword('password1!')).toBe(false);
+  });
+
+  it(`should return 'false' if password contains Cyrillic letters`, () => {
+    expect(checkPassword('Пароль1!')).toBe(false);
+  });
+
+  it(`should return 'true' for a strong valid password`, () => {
+    expect(checkPassword('Str0ng@Pass')).toBe(true);
+  });
 });
