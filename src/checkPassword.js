@@ -1,21 +1,37 @@
 'use strict';
 
 /**
- * @param {string} password
+ * Checks if a password is valid.
+ * Rules:
+ * - Only Latin letters (A-Z, a-z)
+ * - Length 8–16 inclusive
+ * - At least 1 digit
+ * - At least 1 uppercase letter
+ * - At least 1 special character (non-alphanumeric)
  *
+ * @param {string} password
  * @returns {boolean}
  */
 function checkPassword(password) {
-  // eslint-disable-next-line
-  const validPasswordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,16}$/;
-  const cyrillicValidation = /^((?![А-Яа-я]).)*$/;
+  if (typeof password !== 'string') return false;
 
-  // eslint-disable-next-line
-  if (password.match(validPasswordRegex) && password.match(cyrillicValidation)) {
-    return true;
-  }
+  // Length check
+  if (password.length < 8 || password.length > 16) return false;
 
-  return false;
+  // Only allowed characters: Latin letters, digits, and common special chars
+  const allowedChars = /^[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]+$/;
+  if (!allowedChars.test(password)) return false;
+
+  // At least one digit
+  if (!/\d/.test(password)) return false;
+
+  // At least one uppercase
+  if (!/[A-Z]/.test(password)) return false;
+
+  // At least one special character (non-letter, non-digit)
+  if (!/[^A-Za-z0-9]/.test(password)) return false;
+
+  return true;
 }
 
 module.exports = checkPassword;
