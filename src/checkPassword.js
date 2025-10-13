@@ -6,6 +6,8 @@
  * @returns {boolean}
  */
 function checkPassword(password) {
+  if (typeof password !== 'string') return false;
+
   // regex sprawdzający:
   // - co najmniej 1 wielką literę
   // - co najmniej 1 cyfrę
@@ -15,10 +17,10 @@ function checkPassword(password) {
   const validPasswordRegex =
     /^(?=.*\d)(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,16}$/;
 
-  // regex sprawdzający tylko znaki ASCII
-  const asciiValidation = /^[\x20-\x7E]*$/;
+  // regex sprawdzający tylko znaki ASCII od ! do ~ (bez spacji)
+  const asciiValidation = /^[\x21-\x7E]*$/;
 
-  if (password.match(validPasswordRegex) && password.match(asciiValidation)) {
+  if (validPasswordRegex.test(password) && asciiValidation.test(password)) {
     return true;
   }
 
@@ -26,4 +28,5 @@ function checkPassword(password) {
 }
 
 module.exports = checkPassword;
+
 
