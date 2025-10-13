@@ -12,49 +12,63 @@ describe(`Function 'checkPassword':`, () => {
     expect(typeof result).toBe('boolean');
   });
 
-  it(`should return true for valid password with 8 characters`, () => {
-    const result = checkPassword('Abcdef1!');
-    expect(result).toBe(true);
+  // README examples
+  it(`should return true for checkPassword('Password1!')`, () => {
+    expect(checkPassword('Password1!')).toBe(true);
   });
 
-  it(`should return true for valid password with 16 characters`, () => {
-    const result = checkPassword('Abcdefgh1234!XYZ');
-    expect(result).toBe(true);
+  it(`should return false for checkPassword('qwerty')`, () => {
+    expect(checkPassword('qwerty')).toBe(false);
   });
 
-  it(`should return false for password shorter than 8 characters`, () => {
-    const result = checkPassword('Ab1!');
-    expect(result).toBe(false);
+  it(`should return false for checkPassword('Str@ng')`, () => {
+    expect(checkPassword('Str@ng')).toBe(false);
   });
 
-  it(`should return false for password longer than 16 characters`, () => {
-    const result = checkPassword('Abcdefghijklmnop1!');
-    expect(result).toBe(false);
+  // Length boundaries
+  it(`should return false for 7-character password`, () => {
+    expect(checkPassword('Abcde1!')).toBe(false);
   });
 
-  it(`should return false for password without uppercase letter`, () => {
-    const result = checkPassword('abcdef1!');
-    expect(result).toBe(false);
+  it(`should return true for 8-character valid password`, () => {
+    expect(checkPassword('Abcdef1!')).toBe(true);
+  });
+
+  it(`should return true for 16-character valid password`, () => {
+    expect(checkPassword('Abcdefgh1234!XYZ')).toBe(true);
+  });
+
+  it(`should return false for 17-character password`, () => {
+    expect(checkPassword('Abcdefghijklmnop1!')).toBe(false);
+  });
+
+  // Character class coverage
+  it(`should return false for password without uppercase`, () => {
+    expect(checkPassword('abcdef1!')).toBe(false);
   });
 
   it(`should return false for password without digit`, () => {
-    const result = checkPassword('Abcdefgh!');
-    expect(result).toBe(false);
+    expect(checkPassword('Abcdefgh!')).toBe(false);
   });
 
-  it(`should return false for password without special character`, () => {
-    const result = checkPassword('Abcdefg1');
-    expect(result).toBe(false);
+  it(`should return false for password without special char`, () => {
+    expect(checkPassword('Abcdefg1')).toBe(false);
   });
 
-  it(`should return false for password with non-Latin characters`, () => {
-    const result = checkPassword('Пароль1!');
-    expect(result).toBe(false);
+  it(`should return true for uppercase-only valid password`, () => {
+    expect(checkPassword('ABCDEF12!')).toBe(true);
   });
 
-  it(`should return true for password with mix of allowed symbols`, () => {
-    const result = checkPassword('XyZ123@#');
-    expect(result).toBe(true);
+  it(`should return false for password with Cyrillic letters`, () => {
+    expect(checkPassword('Пароль1!')).toBe(false);
+  });
+
+  it(`should return false for password with accented Latin letters`, () => {
+    expect(checkPassword('Pässword1!')).toBe(false);
+  });
+
+  // Whitespace check
+  it(`should return false for password containing whitespace`, () => {
+    expect(checkPassword('Abc def1!')).toBe(false);
   });
 });
-
