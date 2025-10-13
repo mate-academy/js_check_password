@@ -6,12 +6,21 @@
  * @returns {boolean}
  */
 function checkPassword(password) {
-  // eslint-disable-next-line
-  const validPasswordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,16}$/;
-  const cyrillicValidation = /^((?![А-Яа-я]).)*$/;
+  if (typeof password !== 'string') return false;
 
-  // eslint-disable-next-line
-  if (password.match(validPasswordRegex) && password.match(cyrillicValidation)) {
+  // regex sprawdzający:
+  // - co najmniej 1 wielką literę
+  // - co najmniej 1 cyfrę
+  // - co najmniej 1 znak specjalny
+  // - brak spacji
+  // - długość 8-16
+  const validPasswordRegex =
+    /^(?=.*\d)(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,16}$/;
+
+  // regex sprawdzający tylko znaki ASCII od ! do ~ (bez spacji)
+  const asciiValidation = /^[\x21-\x7E]*$/;
+
+  if (validPasswordRegex.test(password) && asciiValidation.test(password)) {
     return true;
   }
 
@@ -19,3 +28,5 @@ function checkPassword(password) {
 }
 
 module.exports = checkPassword;
+
+
