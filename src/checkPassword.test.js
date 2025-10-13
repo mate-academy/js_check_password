@@ -39,7 +39,8 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return false for 17-character password`, () => {
-    expect(checkPassword('Abcdefghijklmnop1!')).toBe(false);
+    // 15 liter + 1 cyfra + 1 znak specjalny = 17 znaków
+    expect(checkPassword('Abcdefghijklmno1!')).toBe(false);
   });
 
   // Character class coverage
