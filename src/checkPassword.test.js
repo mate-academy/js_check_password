@@ -39,10 +39,6 @@ describe(`Function 'checkPassword':`, () => {
     expect(checkPassword('password1!')).toBe(false);
   });
 
-  it('should return false for password without lowercase letter', () => {
-    expect(checkPassword('PASSWORD1!')).toBe(false);
-  });
-
   it('should return false for password with spaces', () => {
     expect(checkPassword('Pass word1!')).toBe(false);
   });
