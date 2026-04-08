@@ -19,6 +19,10 @@ describe(`Function 'checkPassword':`, () => {
     expect(checkPassword('Password1!')).toBe(true);
   });
 
+  it(`should return 'true' for password without lowercase letters`, () => {
+    expect(checkPassword('PASSWORD1!')).toBe(true);
+  });
+
   it(`should return 'true' for valid password with exactly 16 characters`, () => {
     expect(checkPassword('Password1234!Abc')).toBe(true);
   });
