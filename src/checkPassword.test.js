@@ -19,11 +19,21 @@ describe(`Function 'checkPassword':`, () => {
     expect(checkPassword('@Pass1fp!!jdjdjd')).toBe(true);
   });
 
+  it(`should return 'true' for the valid password`, () => {
+    expect(checkPassword('Password1!')).toBe(true);
+  });
+
   it(`should return false for passwords shorter than 8 characters`, () => {
     expect(checkPassword('@Pass1f')).toBe(false);
   });
+
   it(`should return false for passwords longer than 16 characters`, () => {
     expect(checkPassword('ff@Pass1ffhfhfhfhf')).toBe(false);
+  });
+
+  it(`should return 'false' for the invalid password`, () => {
+    expect(checkPassword('qwerty')).toBe(false);
+    expect(checkPassword('Str@ng')).toBe(false);
   });
 
   it('should return false for cyrillic letters', () => {
