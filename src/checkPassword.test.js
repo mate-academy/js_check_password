@@ -19,19 +19,26 @@ describe(`Function 'checkPassword':`, () => {
     expect(checkPassword('@Pass1fp!!jdjdjd')).toBe(true);
   });
 
-  it('should return true for cyrillic letters', () => {
-    expect(checkPassword('@PassЇ1!')).toBe(true);
+  it(`should return false for passwords shorter than 8 characters`, () => {
+    expect(checkPassword('@Pass1f')).toBe(false);
+  });
+  it(`should return false for passwords longer than 16 characters`, () => {
+    expect(checkPassword('ff@Pass1ffhfhfhfhf')).toBe(false);
+  });
+
+  it('should return false for cyrillic letters', () => {
+    expect(checkPassword('@Passнw1!')).toBe(false);
   });
 
   it('should return false for missing digit', () => {
-    expect(checkPassword('@PassЇ!f')).toBe(false);
+    expect(checkPassword('@Passw!f')).toBe(false);
   });
 
   it('should return false for missing special character', () => {
-    expect(checkPassword('2Pasпsk1f')).toBe(false);
+    expect(checkPassword('2Paswsk1f')).toBe(false);
   });
 
   it('should return false for lowercase-only passwords', () => {
-    expect(checkPassword('2@asпsk1f')).toBe(false);
+    expect(checkPassword('2@asskw1f')).toBe(false);
   });
 });
